@@ -1,0 +1,17 @@
+
+@if ( product$ |async; as product) {
+    <h2>Product {{ product.name }}</h2>
+    <ul>
+        <li>
+            {{ product.name }}
+        </li>
+        <li>
+            {{ product.price }}
+        </li>
+        <li>
+            {{ product.description }}
+        </li>
+    </ul>
+} @else {
+    Loading...
+}

@@ -1,0 +1,15 @@
+<h2>product-list works!</h2>
+
+{{message}}
+
+<a routerLink="/products/new">New product</a>
+
+<ul>
+    @for (product of products$ |async; track product.id) {
+        <li>
+            {{ product.id }} - {{ product.name }} {{ product.price }} {{ product.description }}
+            &nbsp;<button [routerLink]="`/products/${product.id}`">details</button>
+            &nbsp;<button (click)="onDelete(product.id)">delete</button>
+        </li>
+    }
+</ul>

@@ -1,0 +1,28 @@
+<h2>New product</h2>
+
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <input type="text" formControlName="name" placeHolder="Name"/>
+    <span style="color: red;">
+        @if (nameControl?.invalid && (nameControl?.dirty || nameControl?.touched)) {
+            @if (nameControl?.hasError('required')) {
+                Field is required
+            }
+        }
+    </span>
+    <br/>
+
+    <input type="number" formControlName="price" placeHolder="Price"/>
+    <span style="color: red;">
+        @if (priceControl?.invalid && (priceControl?.dirty || priceControl?.touched)) {
+            @if (priceControl?.hasError('min')) {
+                Must be greather than zero
+            }
+        }
+    </span>
+    <br/>
+
+    <textarea formControlName="description" placeHolder="Description"></textarea>
+    <br/>
+
+    <button [disabled]="productForm.invalid && (productForm.touched || productForm.dirty)">Submit</button>
+</form>
